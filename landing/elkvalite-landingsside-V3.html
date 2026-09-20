@@ -96,11 +96,8 @@
   .explode-head h2{font-size:clamp(24px,3.2vw,36px)}
   .explode-head p{color:#6b5c4f;font-size:15.5px;margin-top:8px}
   .explode-stage{display:flex;align-items:center;justify-content:center;gap:40px;max-width:1080px;margin:0 auto;width:100%;padding:0 24px;flex:1;min-height:0}
-  .explode-svg-wrap{flex:none;height:min(62vh,560px)}
-  #mask-svg{height:100%;width:auto;overflow:visible}
-  #mask-svg .layer{transition:none;will-change:transform}
-  #mask-svg .layernum{opacity:0;transition:opacity .4s var(--ease)}
-  #mask-svg.exploded .layernum{opacity:1}
+  .explode-media{flex:none;position:relative;height:min(62vh,560px);aspect-ratio:2/3;max-width:44vw;border-radius:24px;overflow:hidden;box-shadow:0 34px 70px rgba(74,59,48,.22);will-change:transform;transform-style:preserve-3d}
+  .ex-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity,filter}
   .ex-labels{list-style:none;display:grid;gap:14px;max-width:330px}
   .ex-label{opacity:.25;transform:translateX(14px);transition:opacity .45s var(--ease),transform .45s var(--ease);display:flex;gap:12px;align-items:flex-start}
   .ex-label.on{opacity:1;transform:none}
@@ -111,7 +108,7 @@
   @media (max-width:860px){
     .explode{height:300vh}
     .explode-stage{flex-direction:column;gap:14px}
-    .explode-svg-wrap{height:min(46vh,420px)}
+    .explode-media{height:min(46vh,420px);max-width:88vw}
     .ex-labels{max-width:100%;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px}
     .ex-label .n{width:22px;height:22px;font-size:12px}
     .ex-label strong{font-size:14px}
@@ -326,79 +323,9 @@
       <p>Scroll videre &#8212; s&#229; tar vi masken fra hverandre, lag for lag.</p>
     </div>
     <div class="explode-stage">
-      <div class="explode-svg-wrap">
-        <svg id="mask-svg" viewBox="0 0 360 700" role="img" aria-label="Eksplodert tegning av El Kvalite LED-maske">
-          <defs>
-            <linearGradient id="shellGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#fdf8f2"/><stop offset="1" stop-color="#f0e4d6"/>
-            </linearGradient>
-            <linearGradient id="boardGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#3d4a63"/><stop offset="1" stop-color="#2b3547"/>
-            </linearGradient>
-            <clipPath id="faceClip">
-              <path d="M180,60 C102,60 64,128 64,212 C64,296 106,378 180,400 C254,378 296,296 296,212 C296,128 258,60 180,60 Z"/>
-            </clipPath>
-            <mask id="eyeMask">
-              <rect width="360" height="700" fill="white"/>
-              <ellipse cx="140" cy="196" rx="30" ry="17" fill="black"/>
-              <ellipse cx="220" cy="196" rx="30" ry="17" fill="black"/>
-            </mask>
-          </defs>
-
-          <!-- 6: HODEB&#197;ND (bakerst) -->
-          <g class="layer" data-off="300">
-            <path d="M52,96 C30,150 30,250 52,320" fill="none" stroke="#8a7462" stroke-width="14" stroke-linecap="round" opacity=".9"/>
-            <path d="M308,96 C330,150 330,250 308,320" fill="none" stroke="#8a7462" stroke-width="14" stroke-linecap="round" opacity=".9"/>
-            <rect x="128" y="26" width="104" height="34" rx="16" fill="#6b5c4f"/>
-            <rect x="150" y="34" width="60" height="6" rx="3" fill="#8a7462"/>
-            <g class="layernum"><circle cx="330" cy="96" r="13" fill="#4a3b30"/><text x="330" y="101" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Georgia,serif">6</text></g>
-          </g>
-
-          <!-- 5: MYKT INNLEGG -->
-          <g class="layer" data-off="205">
-            <path d="M180,60 C102,60 64,128 64,212 C64,296 106,378 180,400 C254,378 296,296 296,212 C296,128 258,60 180,60 Z" fill="#f1e8dc" stroke="#d9c8b4" stroke-width="3" stroke-dasharray="10 7"/>
-            <ellipse cx="140" cy="196" rx="30" ry="17" fill="#faf6f0"/>
-            <ellipse cx="220" cy="196" rx="30" ry="17" fill="#faf6f0"/>
-            <g class="layernum"><circle cx="52" cy="130" r="13" fill="#4a3b30"/><text x="52" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Georgia,serif">5</text></g>
-          </g>
-
-          <!-- 4: BATTERI + USB-C -->
-          <g class="layer" data-off="115">
-            <rect x="132" y="368" width="96" height="52" rx="12" fill="#2e2620"/>
-            <rect x="140" y="376" width="52" height="10" rx="5" fill="#4a3b30"/>
-            <rect x="140" y="392" width="80" height="7" rx="3.5" fill="#4a3b30"/>
-            <rect x="196" y="374" width="24" height="12" rx="3" fill="#c9b8a6"/>
-            <text x="180" y="448" text-anchor="middle" font-size="12" fill="#8a7462" letter-spacing="2">USB-C</text>
-            <g class="layernum"><circle cx="244" cy="394" r="13" fill="#4a3b30"/><text x="244" y="399" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Georgia,serif">4</text></g>
-          </g>
-
-          <!-- 3: KRETSKORT -->
-          <g class="layer" data-off="30">
-            <rect x="92" y="118" width="176" height="236" rx="22" fill="url(#boardGrad)"/>
-            <path d="M112,150 h40 v24 h36 M112,200 h28 v30 h48 M112,260 h56 v22 h30 M248,150 v30 h-22 M248,230 v40 h-30" fill="none" stroke="#7d9bd6" stroke-width="3" stroke-linecap="round" opacity=".8"/>
-            <circle cx="152" cy="174" r="5" fill="#d9a68c"/><circle cx="188" cy="230" r="5" fill="#d9a68c"/><circle cx="198" cy="282" r="5" fill="#d9a68c"/>
-            <circle cx="112" cy="330" r="7" fill="#c9b8a6"/><circle cx="248" cy="330" r="7" fill="#c9b8a6"/>
-            <g class="layernum"><circle cx="92" cy="140" r="13" fill="#4a3b30"/><text x="92" y="145" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Georgia,serif">3</text></g>
-          </g>
-
-          <!-- 2: LED-MATRISE -->
-          <g class="layer" data-off="-55" mask="url(#eyeMask)">
-            <g clip-path="url(#faceClip)">
-              <rect x="64" y="60" width="232" height="340" fill="#fbf3ea"/>
-              <g id="leddots"></g>
-            </g>
-            <ellipse cx="140" cy="196" rx="30" ry="17" fill="none" stroke="#e3d4c2" stroke-width="3"/>
-            <ellipse cx="220" cy="196" rx="30" ry="17" fill="none" stroke="#e3d4c2" stroke-width="3"/>
-            <g class="layernum"><circle cx="296" cy="150" r="13" fill="#4a3b30"/><text x="296" y="155" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Georgia,serif">2</text></g>
-          </g>
-
-          <!-- 1: SILIKONSKALL (foran) -->
-          <g class="layer" data-off="-140">
-            <path d="M180,60 C102,60 64,128 64,212 C64,296 106,378 180,400 C254,378 296,296 296,212 C296,128 258,60 180,60 Z" fill="url(#shellGrad)" fill-opacity=".55" stroke="#e6d7c4" stroke-width="3"/>
-            <path d="M96,140 C120,96 240,96 264,140" fill="none" stroke="#fff" stroke-width="5" opacity=".7" stroke-linecap="round"/>
-            <g class="layernum"><circle cx="180" cy="60" r="13" fill="#4a3b30"/><text x="180" y="65" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Georgia,serif">1</text></g>
-          </g>
-        </svg>
+      <div class="explode-media" id="explode-media">
+        <img class="ex-img ex-a" src="https://cdn.shopify.com/s/files/1/0884/4925/3653/files/maske-produkt.jpg" alt="El Kvalite LED-maske i hvitt silikon med r&#248;dt og bl&#229;tt lys">
+        <img class="ex-img ex-b" id="ex-img-b" src="https://cdn.shopify.com/s/files/1/0884/4925/3653/files/maske-eksplodert.jpg" alt="Eksplodert visning av El Kvalite LED-masken &#8212; skall, LED-matrise, kretskort, batteri og hodeb&#229;nd lag for lag" loading="lazy">
       </div>
       <ul class="ex-labels">
         <li class="ex-label" data-step="0"><span class="n">1</span><div><strong>Mykt silikonskall</strong><span>Fleksibelt, lett &#229; t&#248;rke av &#8212; og behagelig mot huden.</span></div></li>
@@ -735,25 +662,6 @@
     }
   }
 
-  /* LED dots generated into the exploded SVG */
-  var dots = document.getElementById('leddots');
-  if(dots){
-    var ns = 'http://www.w3.org/2000/svg';
-    for(var row=0; row<11; row++){
-      for(var col=0; col<7; col++){
-        var cx = 92 + col*29, cy = 92 + row*26;
-        var inEye = (Math.abs(cx-140)<30 && Math.abs(cy-196)<20) || (Math.abs(cx-220)<30 && Math.abs(cy-196)<20);
-        if(inEye) continue;
-        var c = document.createElementNS(ns,'circle');
-        c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r',5.5);
-        var blue = ((row+col) % 4 === 0);
-        c.setAttribute('fill', blue ? '#4a7fd6' : '#e2574c');
-        c.setAttribute('opacity','.9');
-        dots.appendChild(c);
-      }
-    }
-  }
-
   /* Reveal on scroll */
   var revealEls = [].slice.call(document.querySelectorAll('.reveal'));
   function revealCheck(){
@@ -846,23 +754,32 @@
     updatePlx();
   }
 
-  /* Exploded view scroll driver (ScrollTrigger scrub in GSAP mode, vanilla fallback) */
+  /* Exploded view scroll driver: cinematic crossfade from product photo to exploded render */
   var ex = document.getElementById('explode');
-  var svg = document.getElementById('mask-svg');
-  if(ex && svg){
-    var layers = [].slice.call(svg.querySelectorAll('.layer'));
+  var exMedia = document.getElementById('explode-media');
+  var exA = exMedia ? exMedia.querySelector('.ex-a') : null;
+  var exB = exMedia ? exMedia.querySelector('.ex-b') : null;
+  if(ex && exMedia && exA && exB){
     var labels = [].slice.call(document.querySelectorAll('.ex-label'));
+    function clamp01(v){ return Math.min(1, Math.max(0, v)); }
+    function easeOutC(v){ return 1 - Math.pow(1 - v, 3); }
     function applyExplode(raw){
-      /* hold the first/last 10% steady for reading */
-      var p = Math.min(1, Math.max(0, (raw - .10) / .80));
+      /* hold the first/last 8% steady for reading */
+      var p = clamp01((raw - .08) / .84);
       var e = p < .5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2;
-      layers.forEach(function(g){
-        var off = parseFloat(g.getAttribute('data-off')) || 0;
-        g.style.transform = 'translateY(' + (off*e).toFixed(1) + 'px)';
-      });
-      svg.classList.toggle('exploded', e > .55);
+      /* phase 1: product photo pushes in (0 -> .38) */
+      var a = easeOutC(clamp01(e / .38));
+      /* phase 2: crossfade to the exploded render (.30 -> .66) */
+      var fe = easeOutC(clamp01((e - .30) / .36));
+      exA.style.opacity = (1 - fe).toFixed(3);
+      exA.style.transform = 'scale(' + (1 + .12 * a).toFixed(4) + ')';
+      exB.style.opacity = fe.toFixed(3);
+      exB.style.transform = 'scale(' + (1.16 - .14 * fe).toFixed(4) + ') translateY(' + (-14 * fe).toFixed(1) + 'px)';
+      exB.style.filter = fe > .99 ? 'none' : 'blur(' + ((1 - fe) * 9).toFixed(1) + 'px)';
+      /* media frame tilts like a floating product card mid-transition */
+      exMedia.style.transform = 'perspective(1100px) rotateX(' + (9 * Math.sin(e * Math.PI)).toFixed(2) + 'deg) rotate(' + (-1.6 * Math.sin(e * Math.PI)).toFixed(2) + 'deg)';
       labels.forEach(function(lb, i){
-        lb.classList.toggle('on', e > (i / labels.length) * .92 + .08);
+        lb.classList.toggle('on', fe > (i / labels.length) * .92 + .08);
       });
     }
     if(gsapMode){
