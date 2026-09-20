@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>El Kvalite LED-maske &#8212; Ti stille minutter til hud som f&#248;les som ny</title>
 <meta name="description" content="Tr&#229;dl&#248;s LED-maske med r&#248;dt og bl&#229;tt lys. 10 minutter om kvelden. 60 dagers &#229;pent kj&#248;p, gratis frakt og 2 &#229;rs garanti. N&#229; 799 kr (f&#248;r 1 299 kr).">
+<style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap');</style>
 <style>
   :root{
     --cream:#faf6f0; --sand:#f1e8dc; --taupe:#8a7462; --coffee:#4a3b30;
@@ -259,6 +260,77 @@
     .reveal{opacity:1;transform:none}
     .hero .content > *{opacity:1;transform:none}
     .hero .line span{transform:none;animation:none}
+  }
+
+  /* ============ PREMIUM LOFT ============ */
+  :root{--gold:#b08d57;--gold-soft:#d3b98e;--coffee-2:#33291f}
+  /* full bredde i Shopify-wrapperen (shrink-to-fit pga inline rte-formatter) */
+  rte-formatter{display:block;width:100%;max-width:none}
+  .page-content,.shopify-block.rte,.layout-panel-flex{width:100%;max-width:none}
+  /* Horizon lager smalt midtspor (399px 672px 399px) - tving full bredde */
+  .section.page-width-content{grid-template-columns:minmax(0,1fr)!important}
+  .layout-panel-flex{grid-column:1/-1!important}
+  /* filmkorn overalt */
+  body::after{content:"";position:fixed;inset:-40px;pointer-events:none;z-index:400;opacity:.05;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="240" height="240" filter="url(%23n)" opacity="0.6"/></svg>');background-size:240px 240px}
+  ::selection{background:var(--gold);color:#fff}
+  h1,h2,h3,.brand,.mininav .logo,.stat .num,.step .num,.glow blockquote,.glow figcaption strong,.hero .brand{font-family:"Fraunces",Georgia,"Times New Roman",serif;letter-spacing:-.015em}
+  body,.btn,.eyebrow,.marquee span,.q button,.review p,.light-item span{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  h1,h2,h3{font-weight:400}
+  section{padding:112px 0}
+  .eyebrow{color:var(--gold);display:inline-flex;align-items:center;gap:12px;font-weight:600;font-size:11.5px}
+  .eyebrow::before{content:"";width:36px;height:1px;background:var(--gold)}
+  .center .eyebrow::after{content:"";width:36px;height:1px;background:var(--gold)}
+  /* hero */
+  .hero{min-height:96vh}
+  .hero h1{font-size:clamp(38px,6.2vw,84px);letter-spacing:-.022em;line-height:1.06;font-weight:400}
+  .hero .overlay{background:linear-gradient(180deg,rgba(26,19,13,.34) 0%,rgba(26,19,13,.14) 42%,rgba(26,19,13,.8) 100%),radial-gradient(ellipse 90% 70% at 50% 42%,transparent 28%,rgba(18,12,8,.55) 100%)}
+  .hero .hero-media{filter:saturate(1.06) contrast(1.04)}
+  .hero .brand{letter-spacing:10px;color:var(--gold-soft);font-weight:500}
+  .hero p{font-weight:300;letter-spacing:.01em}
+  /* knapper */
+  .btn{background:linear-gradient(135deg,#43362a,var(--coffee-2));text-transform:uppercase;letter-spacing:1.4px;font-size:14px;font-weight:600;padding:18px 44px;box-shadow:0 10px 26px rgba(51,41,31,.25)}
+  .btn:hover{background:linear-gradient(135deg,var(--gold),#96703c);transform:translateY(-3px);box-shadow:0 18px 38px rgba(74,59,48,.3)}
+  .btn.light{background:rgba(255,255,255,.94)}
+  .btn.light:hover{background:var(--gold);color:#fff}
+  .hero .herochip{border:1px solid rgba(255,255,255,.4)}
+  .scrollhint{font-weight:500}
+  /* tillit + statistikk */
+  .trust{background:var(--coffee-2);border-top:1px solid rgba(176,141,87,.35);border-bottom:1px solid rgba(176,141,87,.35)}
+  .marquee .sep{color:var(--gold)}
+  .stats{background:var(--coffee-2)}
+  .stat .num{color:var(--gold-soft);font-weight:300}
+  .stat .lbl{color:#d8c8b6}
+  /* typografi seksjoner */
+  .problem h2,.split h2,.video-copy h2,.explode-head h2,.bundle h2{font-size:clamp(28px,3.8vw,46px);font-weight:400;letter-spacing:-.02em}
+  .problem p{font-weight:300;font-size:19px}
+  /* redaksjonelle bilder: skarpe hjorner + tynn kant */
+  .split img,.glow figure img,.bundle img{border-radius:6px;outline:1px solid rgba(74,59,48,.1);outline-offset:-1px}
+  /* kort med hairline */
+  .review,.step,.g-item,.light-item,.q{background:#fff;border:1px solid rgba(74,59,48,.09);box-shadow:0 14px 34px rgba(74,59,48,.07)}
+  .step .num{color:var(--gold);font-weight:300}
+  .review .stars{color:var(--gold);letter-spacing:4px}
+  .g-item:hover{background:#fbf7f0;border-color:rgba(176,141,87,.4)}
+  .q.open{border-color:rgba(176,141,87,.45)}
+  .q .chev{background:#f3ece2}
+  .q.open .chev{background:var(--gold)}
+  /* eksplosjon */
+  .explode-head h2{font-size:clamp(26px,3.4vw,42px)}
+  .ex-label .n{background:var(--coffee-2);font-family:"Fraunces",Georgia,serif;font-weight:400}
+  /* paywall */
+  .paywall .pp{border:1px solid #e4d6c3;background:#fff}
+  .price{font-family:"Fraunces",Georgia,serif;font-weight:500}
+  .price s{font-family:"Inter",sans-serif}
+  .badge{background:var(--gold);letter-spacing:1px}
+  /* final */
+  .final h2{font-size:clamp(30px,4.8vw,58px);font-weight:400;letter-spacing:-.02em}
+  .final .o2{background:var(--gold-soft)}
+  footer{background:#2c231b;border-top:1px solid rgba(176,141,87,.25)}
+  @media (max-width:820px){
+    section{padding:72px 0}
+    .hero{min-height:92vh}
+    .hero h1{font-size:clamp(34px,9.4vw,52px)}
+    .btn{padding:16px 34px;font-size:13px}
+    .eyebrow::before,.center .eyebrow::after{width:22px}
   }
 </style>
 </head>
@@ -838,6 +910,21 @@
       }
     });
   });
+})();
+</script>
+<script>
+/* fjern temaets egen sidetittel (beholder heroens h1) */
+(function(){
+  var hs=document.querySelectorAll('h1');
+  for(var i=0;i<hs.length;i++){
+    var h=hs[i];
+    if(h.closest('.hero'))continue;
+    if((h.textContent||'').indexOf('El Kvalite')===-1)continue;
+    var tb=h.closest('[class*=\"text-block\"]');
+    if(tb){tb.style.display='none';continue}
+    var sec=h.closest('.shopify-section');
+    if(sec&&!sec.querySelector('.hero'))sec.style.display='none';
+  }
 })();
 </script>
 
